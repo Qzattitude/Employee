@@ -7,7 +7,7 @@ namespace Employee.Models
     {
         [Key]
         [Required]
-        public int ID { get; set; }
+        public Guid ID { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

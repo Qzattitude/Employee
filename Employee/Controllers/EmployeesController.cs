@@ -30,7 +30,7 @@ namespace Employee.Controllers
 
         // GET: api/Employees/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Employees>> GetEmployees(int id)
+        public async Task<ActionResult<Employees>> GetEmployees(Guid id)
         {
             var employees = await _context.Employees.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace Employee.Controllers
         // PUT: api/Employees/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEmployees(int id, Employees employees)
+        public async Task<IActionResult> PutEmployees(Guid id, Employees employees)
         {
             if (id != employees.ID)
             {
@@ -86,7 +86,7 @@ namespace Employee.Controllers
 
         // DELETE: api/Employees/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployees(int id)
+        public async Task<IActionResult> DeleteEmployees(Guid id)
         {
             var employees = await _context.Employees.FindAsync(id);
             if (employees == null)
@@ -100,7 +100,7 @@ namespace Employee.Controllers
             return NoContent();
         }
 
-        private bool EmployeesExists(int id)
+        private bool EmployeesExists(Guid id)
         {
             return _context.Employees.Any(e => e.ID == id);
         }
